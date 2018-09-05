@@ -1,0 +1,39 @@
+curl -XPUT http://localhost:9200/trademap -d '{
+  "settings" : {
+    "number_of_shards" : 5,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+        "export": {
+		    "dynamic": "strict",
+			"properties": {	
+				"partners": {
+				"type" : "string", 
+				"index" : "not_analyzed"
+				},
+				"years": {
+				"type" : "string", 
+				"index" : "not_analyzed"
+				},
+				"product": {
+				"type" : "string", 
+				"index" : "not_analyzed"
+				},
+				"trade_values": {
+				"type": "float"
+				},
+				"reporters": {
+				"type" : "string", 
+				"index" : "not_analyzed"
+				},
+				"retailers": {
+				"type" : "string", 
+				"index" : "not_analyzed"
+				}
+			}
+			
+			
+		}
+    }
+}'
+
